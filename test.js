@@ -1,19 +1,18 @@
-var arr = [0, 0, 1, 1, 1, 2, 2, 3, 3, 4];
+let read = require("readline-sync");
 
-var len = arr.length;
+var n = read.questionInt("Enter a number: ");
 
-for (var i = 0; i < len; i++) {
-  for (var j = 0; j < len; j++) {
-    if (i != j && arr[i] == arr[j]) {
-      for (var k = j; k < len; k++) {
-        arr[k] = arr[k + 1];
-      }
-      i--;
-      len--;
-    }
+var fac = [];
+for (var i = 2; i < n; i++) {
+  if (n % i === 0) {
+    fac.push(i);
   }
 }
+fac.forEach((f) => {
+  if (Number.isInteger(Math.sqrt(f))) {
+    fac.pop(f);
+  }
+});
 
-for (var k = 0; k < len; k++) {
-  console.log(arr[k]);
-}
+console.log(fac);
+// console.log(ss);
